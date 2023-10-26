@@ -60,7 +60,7 @@ const App = () => {
       getPictures();
       console.log('uploaded');
     
-  }, [page, getPictures]);
+  }, [page]);
 
   const handleClickImage = (e) => {
     if (isScroll) {
