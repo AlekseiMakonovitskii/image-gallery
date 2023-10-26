@@ -53,14 +53,14 @@ const App = () => {
     if (inView && !loading) {
       setPage(prev => prev + 1);
     }
-  }, [inView]);
+  }, [inView, loading]);
 
   useEffect(() => {
     
       getPictures();
       console.log('uploaded');
     
-  }, [page]);
+  }, [page, getPictures]);
 
   const handleClickImage = (e) => {
     if (isScroll) {

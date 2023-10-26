@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React from 'react'
 import { FaLongArrowAltLeft } from 'react-icons/fa';
 import { FaLongArrowAltRight } from 'react-icons/fa';
 import { HiOutlineDownload } from 'react-icons/hi';
