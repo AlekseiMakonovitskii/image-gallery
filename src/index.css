@@ -240,6 +240,7 @@ footer {
   bottom: 15px;
   right: 15px;
   transition-duration: .5s;;
+  z-index: 10;
 }
 
 
