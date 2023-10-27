@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 
+/* general */
 .app {
   display: flex;
   flex-direction: column;
@@ -15,6 +16,7 @@
 body {
   font-family: 'Bebas Neue', sans-serif;
   cursor: default;
+  transition-duration: .5s;
 }
 
 h1,
@@ -22,6 +24,7 @@ h3 {
   text-align: center;
   font-size: 2rem;
   line-height: 2rem;
+  transition-duration: .5s;
 }
 
 h1 {
@@ -39,6 +42,7 @@ h3 {
   height: 50px;
 }
 
+/* header */
 .header {
   padding: 1rem 1rem;
   animation: start 1s linear;
@@ -46,10 +50,39 @@ h3 {
   position: relative;
 }
 
+.nav {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 2rem;
+  gap: .5rem;
+}
+
+.nav a {
+  cursor: pointer;
+  transition-duration: .5s;
+  color: #333;
+}
+
+.nav a:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.nav a:not(:hover) {
+  transition-duration: 0.5s;
+}
+
+
+
+/* gallery */
 .gallery {
-  column-count: 3;
+  /* column-count: 3; */
   column-gap: 1rem;
-  padding: 1rem;
+  padding: 0 1rem;
+  padding-bottom: 1rem;
   max-width: 1400px;
   margin-inline: auto;
   animation: start 1s linear;
@@ -82,12 +115,16 @@ h3 {
   transition-duration: 0.5s;
 }
 
+/* footer */
+
 footer {
   display: flex;
   width: 100%;
   height: 1rem;
   margin-top: auto;
 }
+
+/* loader */
 
 .loader {
   position: absolute;
@@ -100,6 +137,8 @@ footer {
   min-width: 100%;
   animation: start 1s linear;
 }
+
+/* modal */
 
 .modalWindow {
   position: fixed;
@@ -174,14 +213,14 @@ footer {
   transition-duration: 0.5s;
 }
 
+
+/* up fixed button */
 .upBtn {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   position: fixed;
-  bottom: 15px;
-  right: 30px;
+  color: white;
   cursor: pointer;
   background: #333;
   height: 50px;
@@ -189,7 +228,11 @@ footer {
   border-radius: 100%;
   font-size: 1.5rem;
   animation: start 0.5s linear;
+  bottom: 15px;
+  right: 15px;
+  transition-duration: .5s;;
 }
+
 
 .upBtn:hover {
   transform: scale(1.2);
@@ -199,6 +242,8 @@ footer {
 .upBtn:not(:hover) {
   transition-duration: 0.5s;
 }
+
+/* error */
 
 .error {
   display: flex;
@@ -214,11 +259,32 @@ footer {
   gap: .5rem;
 }
 
+/* dark mode */
+.h1Dark {
+  color: white;
+}
+
+.h3Dark {
+  color: rgb(231, 231, 231);
+}
+
+.modeSwitchDark {
+  color: white!important;
+}
+
+.btnUpDark {
+  color: #333;
+  background: white;
+}
+
+/* media */
 @media (max-width: 900px) {
   .gallery {
     column-count: 2;
   }
 }
+
+/* animation */
 
 @keyframes start {
   from {

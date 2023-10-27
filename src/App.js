@@ -23,6 +23,8 @@ const App = () => {
     maxIndex: pictures.length - 1,
   });
   const [isError, setIsError] = useState(false)
+  const [isDark, setIsDark] = useState(false)
+  const [layout, setLayout] = useState(3);
 
   // fetch data
   const getPictures = async () => {
@@ -119,11 +121,29 @@ const App = () => {
     });
   };
 
+  // darkMode 
+  useEffect(() => {
+    if (isDark) {
+      document.body.style.background = '#333';
+    } else {
+      document.body.style.background = '#fff';
+    }
+  }, [isDark])
+
+  // Layout logic
+  const handleLayout = () => {
+    if (layout < 5) {
+      setLayout(prev => prev + 1);
+    } else {
+      setLayout(1);
+    }
+  }
+ 
   return (
     <div className="app">
-      <Header />
+      <Header isDark={isDark} setIsDark={setIsDark} handleLayout={handleLayout}/>
       {!loading && (
-        <Gallery pictures={pictures} handleClickImage={handleClickImage} />
+        <Gallery pictures={pictures} handleClickImage={handleClickImage} layout={layout}/>
       )}
       <footer ref={ref}></footer>
 
@@ -149,9 +169,13 @@ const App = () => {
       )}
 
       {!isModal && (
-        <a className="upBtn" onClick={toTop}>
+        <div className='navBtns'>
+        <a className={`btn upBtn ${isDark && 'btnUpDark'}`}  onClick={toTop}>
           <FaLongArrowAltUp />
         </a>
+    
+        </div>
+        
       )}
 
       {isError && !loading && <div className='error'>Ooops, something went wrong <img src={sadFace} alt="" className='emoji'/></div>}
