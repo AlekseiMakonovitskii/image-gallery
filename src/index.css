@@ -41,6 +41,9 @@ h3 {
 
 .header {
   padding: 1rem 1rem;
+  animation: start 1s linear;
+  z-index: 1;
+  position: relative;
 }
 
 .gallery {
@@ -49,32 +52,34 @@ h3 {
   padding: 1rem;
   max-width: 1400px;
   margin-inline: auto;
+  animation: start 1s linear;
 }
 
 .imageContainer {
   cursor: pointer;
   position: relative;
   break-inside: avoid;
-  margin-bottom: .7rem;
+  margin-bottom: 0.7rem;
   overflow: hidden;
   border-radius: 8px;
   transition: transform 0.2s ease-in-out;
-
 }
 
 .imageContainer img {
   max-width: 100%;
   min-height: 100%;
   border-radius: 0.5rem;
+  animation: start 1s linear;
+  user-select: none;
 }
 
 .imageContainer img:hover {
   transform: scale(1.05);
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 .imageContainer img:not(:hover) {
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 footer {
@@ -93,6 +98,7 @@ footer {
   left: 0;
   min-height: 100vh;
   min-width: 100%;
+  animation: start 1s linear;
 }
 
 .modalWindow {
@@ -106,6 +112,7 @@ footer {
   min-width: 100%;
   background: rgba(0, 0, 0, 0.9);
   color: white;
+  z-index: 2;
 }
 
 .closePort {
@@ -124,13 +131,16 @@ footer {
   gap: 1rem;
   max-height: 80vh;
   padding: 2rem;
-  position: relative;
+  /* position: relative; */
+  user-select: none;
 }
 
 .content img {
   width: 100%;
   max-height: 100%;
   object-fit: contain;
+  animation: start 0.5s linear;
+  user-select: none;
 }
 
 .downloadBtn {
@@ -142,13 +152,13 @@ footer {
   display: flex;
   gap: 3rem;
   position: absolute;
-  bottom: 0;
+  bottom: 30px;
   z-index: 1;
 }
 
 .modalNavigation a {
   display: flex;
-  font-size: 1.5rem;
+  font-size: 2rem;
   border: none;
   background: none;
   color: white;
@@ -157,15 +167,64 @@ footer {
 
 .modalNavigation a:hover {
   transform: scale(1.5);
-  transition-duration: .5s;
+  transition-duration: 0.5s;
 }
 
 .modalNavigation a:not(:hover) {
-  transition-duration: .5s;
+  transition-duration: 0.5s;
+}
+
+.upBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: fixed;
+  bottom: 15px;
+  right: 30px;
+  cursor: pointer;
+  background: #333;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  font-size: 1.5rem;
+  animation: start 0.5s linear;
+}
+
+.upBtn:hover {
+  transform: scale(1.2);
+  transition-duration: 0.5s;
+}
+
+.upBtn:not(:hover) {
+  transition-duration: 0.5s;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  left: 0;
+  font-size: 2rem;
+  animation: start 0.5s linear;
+  gap: .5rem;
 }
 
 @media (max-width: 900px) {
   .gallery {
     column-count: 2;
+  }
+}
+
+@keyframes start {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }

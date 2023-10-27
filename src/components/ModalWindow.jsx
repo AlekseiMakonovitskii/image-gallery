@@ -4,8 +4,7 @@ import { FaLongArrowAltRight } from 'react-icons/fa';
 import { HiOutlineDownload } from 'react-icons/hi';
 
 const ModalWindow = ({onClick, isTarget, imageBack, imageNext}) => {
-	
-	console.log(isTarget);
+
 
 	return (
 		<div className='modalWindow'>
